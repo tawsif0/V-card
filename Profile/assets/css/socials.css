@@ -1,0 +1,29 @@
+.social-icons {
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    flex-wrap: wrap;
+    /* Allow items to wrap to the next row */
+}
+
+.social-icons a {
+    box-shadow: var(--shadow-1);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2px 8px;
+    width: 40px;
+    height: 40px;
+    color: hsl(45, 100%, 72%);
+    background: var(--border-gradient-onyx);
+    z-index: 1;
+    flex: 0 0 calc(25% - 20px);
+    /* Set the width for each icon, considering margins */
+}
+
+.social-icons a:hover {
+    background: var(--bg-gradient-yellow-1);
+}

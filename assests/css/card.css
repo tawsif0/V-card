@@ -1,0 +1,131 @@
+.card {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    user-select: none;
+
+    @media screen and (max-width: 768px) {
+        margin: 0;
+    }
+
+}
+
+
+.nft {
+    user-select: none;
+    max-width: 300px;
+    margin: 5rem auto;
+    border: 1px solid #ffffff22;
+    background-color: #282c34;
+    background: linear-gradient(0deg, #282c34 0%, rgba(17, 0, 32, 0.5) 100%);
+    box-shadow: 0 7px 20px 5px #00000088;
+    border-radius: 0.7rem;
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    overflow: hidden;
+    transition: 0.5s all;
+
+    @media screen and (max-width: 768px) {
+        max-width: 100%;
+        margin: 20px 1rem;
+    }
+}
+
+.nft hr {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #88888855;
+    margin-top: 10px;
+}
+
+.h2-nft {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    color: hsl(45, 100%, 72%);
+}
+
+.nft .main-nft {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.nft .main-nft .tokenImage {
+    border-radius: 0.5rem;
+    max-width: 100%;
+    height: 250px;
+    object-fit: cover;
+
+    @media screen and (max-width: 768px) {
+        height: 150px;
+    }
+}
+
+.nft .main-nft .description-nft {
+    margin: 0.5rem 0;
+    color: #a89ec9;
+}
+
+.nft:hover {
+    border: 1px solid #ffffff44;
+    box-shadow: 0 7px 50px 10px #000000aa;
+    transform: scale(1.015);
+    filter: brightness(1.3);
+}
+
+.nft:hover ::before {
+    filter: brightness(0.5);
+    top: -100%;
+    left: 200%;
+}
+
+.bg {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.bg h1 {
+    font-size: 20rem;
+    filter: opacity(0.5);
+}
+
+
+.btn-nft {
+    margin-top: 10px;
+    padding: 1.3em 3em;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #000;
+    background-color: #f2e340;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+
+    @media screen and (max-width: 768px) {
+        font-size: 10px;
+        padding: 1em 2em;
+
+    }
+}
+
+.btn-nft:hover {
+    background-color: #f2e340;
+    transform: translateY(-7px);
+}
+
+.btn-nft:active {
+    transform: translateY(-1px);
+}
