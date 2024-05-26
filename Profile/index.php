@@ -401,12 +401,51 @@ if ($selected) {
         </header>
         <h3 class="h3 form-title">Contact Information</h3>
         <div class="qr-container">
+
           <?php
           $data = "BEGIN:VCARD\nVERSION:3.0\nFN:$name\nEMAIL:$email\nTEL:$phno\nEND:VCARD";
           $qrCodeData = urlencode($data);
-          $qrCodeURL = "https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=" . $qrCodeData . "&color=255-255-0&bgcolor=0-0-0";
 
+          // Convert HSL color to RGB
+          list($r, $g, $b) = hsl_to_rgb(45, 100, 72);
+
+          // Construct the QR code URL with color customization
+          $qrCodeURL = "https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=" . $qrCodeData . "&color=" . $r . "-" . $g . "-" . $b . "&bgcolor=0-0-0";
+          function hsl_to_rgb($h, $s, $l)
+          {
+            $h = $h / 360;
+            $s = $s / 100;
+            $l = $l / 100;
+
+            $r = $g = $b = 0;
+
+            if ($s == 0) {
+              $r = $g = $b = $l;
+            } else {
+              $q = $l < 0.5 ? $l * (1 + $s) : $l + $s - $l * $s;
+              $p = 2 * $l - $q;
+
+              $r = hue_to_rgb($p, $q, $h + 1 / 3);
+              $g = hue_to_rgb($p, $q, $h);
+              $b = hue_to_rgb($p, $q, $h - 1 / 3);
+            }
+
+            return array(round($r * 255), round($g * 255), round($b * 255));
+          }
+
+          function hue_to_rgb($p, $q, $t)
+          {
+            if ($t < 0) $t += 1;
+            if ($t > 1) $t -= 1;
+            if ($t < 1 / 6) return $p + ($q - $p) * 6 * $t;
+            if ($t < 1 / 2) return $q;
+            if ($t < 2 / 3) return $p + ($q - $p) * (2 / 3 - $t) * 6;
+            return $p;
+          }
           ?>
+
+
+
 
           <img src="<?php echo $qrCodeURL; ?>" alt="QR Code"><br>
 
@@ -427,7 +466,7 @@ if ($selected) {
             // URL encode the profile URL
             $profileURLEncoded = urlencode($profileURL);
             // Generate the URL for the second QR code
-            $profileQRCodeURL = "https://api.qrserver.com/v1/create-qr-code/?size=140x140&color=255-255-0&bgcolor=0-0-0&data={$profileURLEncoded}";
+            $profileQRCodeURL = "https://api.qrserver.com/v1/create-qr-code/?size=140x140&color=" . $r . "-" . $g . "-" . $b . "&bgcolor=0-0-0&data={$profileURLEncoded}";
             echo "<img src='{$profileQRCodeURL}' alt='QR Code'>";
           } else {
             echo "<p>Profile QR Code not available.</p>";
