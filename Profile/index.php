@@ -404,12 +404,14 @@ if ($selected) {
           <?php
           $data = "BEGIN:VCARD\nVERSION:3.0\nFN:$name\nEMAIL:$email\nTEL:$phno\nEND:VCARD";
           $qrCodeData = urlencode($data);
-          $qrCodeURL = "https://chart.googleapis.com/chart?chs=140x140&cht=qr&chl=" . $qrCodeData . "&choe=UTF-8";
+          $qrCodeURL = "https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=" . $qrCodeData . "&color=255-255-0&bgcolor=0-0-0";
+
           ?>
 
           <img src="<?php echo $qrCodeURL; ?>" alt="QR Code"><br>
 
           <!-- Download button for the QR code -->
+
           <a href="<?php echo $qrCodeURL; ?>" download="contact_qr_code.jpg" class="form-btn">Download QR Code</a>
         </div><br>
 
@@ -418,27 +420,23 @@ if ($selected) {
 
           <?php
           if (isset($_SESSION['id'])) {
+            // Assuming $_SESSION['id'] contains the user ID
             $id = $_SESSION['id'];
-            // $encodedID = base64_encode($id); // Encode the ID
-            $profileURL = 'http://192.168.0.105/V/qrcode/Profile/viewProfile.php?uid=' . $id;
+            // Construct the profile URL
+            $profileURL = 'http://192.168.0.101/v/qrcode/Profile/viewProfile.php?uid=' . $id;
             // URL encode the profile URL
             $profileURLEncoded = urlencode($profileURL);
-            // Google Chart API URL for generating QR code
-            $qrCodeURL = "https://chart.googleapis.com/chart?chs=140x140&cht=qr&chl={$profileURLEncoded}";
-
-            // Display the QR code
-            echo "<img src='{$qrCodeURL}' alt='QR Code'>";
+            // Generate the URL for the second QR code
+            $profileQRCodeURL = "https://api.qrserver.com/v1/create-qr-code/?size=140x140&color=255-255-0&bgcolor=0-0-0&data={$profileURLEncoded}";
+            echo "<img src='{$profileQRCodeURL}' alt='QR Code'>";
+          } else {
+            echo "<p>Profile QR Code not available.</p>";
           }
-
-
-
-
           ?>
           <br>
         </div>
 
-        <a href="<?php echo $qrCodeURL; ?>" download="contact_qr_code.jpg" class="form-btn">Download QR Code</a>
-
+        <a href="<?php echo isset($profileQRCodeURL) ? $profileQRCodeURL : '#'; ?>" download="profile_qr_code.jpg" class="form-btn">Download QR Code</a>
 
         <div class="">
           <button class="" data-select>
