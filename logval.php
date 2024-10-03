@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <title>Redirecting</title>
     <style>
-        body {
-            background: #212529;
-        }
+    body {
+        background: #212529;
+    }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>

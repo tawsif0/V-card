@@ -477,7 +477,7 @@ if ($selected) {
             // Assuming $_SESSION['id'] contains the user ID
             $id = $_SESSION['id'];
             // Construct the profile URL
-            $profileURL = 'http://sql210.infinityfree.com/v/qrcode/Profile/viewProfile.php?uid=' . $id;
+            $profileURL = 'http://vcard.infinityfree.com/v/qrcode/Profile/viewProfile.php?uid=' . $id;
             // URL encode the profile URL
             $profileURLEncoded = urlencode($profileURL);
             // Generate the URL for the second QR code
