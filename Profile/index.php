@@ -479,7 +479,7 @@ if ($selected) {
             // Construct the profile URL
             $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https://" : "http://";
             $host = $_SERVER['HTTP_HOST']; 
-            $profileURL = $protocol . $host . '/v/qrcode/Profile/viewProfile.php?uid=' . $id;
+            $profileURL = $protocol . $host . '/Profile/viewProfile.php?uid=' . $id;
 
           
             // URL encode the profile URL
