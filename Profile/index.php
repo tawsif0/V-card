@@ -43,96 +43,99 @@ if ($selected) {
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>vCard - profile</title>
-  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon" />
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-  <!--
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vCard - profile</title>
+    <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <!--
     - custom css link
   -->
-  <link rel="stylesheet" href="./assets/css/stylesss.css" />
-  <link rel="stylesheet" href="./assets/css/image.css">
-  <link rel="stylesheet" href="./assets/css/socials.css">
-  <link rel="stylesheet" href="./assets/css/qr.css">
-  <!--
+    <link rel="stylesheet" href="./assets/css/stylesss.css" />
+    <link rel="stylesheet" href="./assets/css/image.css">
+    <link rel="stylesheet" href="./assets/css/socials.css">
+    <link rel="stylesheet" href="./assets/css/qr.css">
+    <!--
     -  links
   -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-eoGF3tkGTm3R7xy9cZXz5n3vgrO2wkMa3LCzz7spuqKQ6cVBK+7Rr9U8UwRfl5IS" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-eoGF3tkGTm3R7xy9cZXz5n3vgrO2wkMa3LCzz7spuqKQ6cVBK+7Rr9U8UwRfl5IS" crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
 <body>
-  <!--
+    <!--
     - #MAIN
   -->
-  <main>
-    <!--
+    <main>
+        <!--
       - #SIDEBAR
     -->
-    <aside class="sidebar" data-sidebar>
-      <div class="sidebar-info">
-        <figure class="">
-          <div>
+        <aside class="sidebar" data-sidebar>
+            <div class="sidebar-info">
+                <figure class="">
+                    <div>
 
-            <form class="form" id="form" action="upim.php" enctype="multipart/form-data" method="post">
-              <div class="upload">
-                <img src="data:image/jpeg;base64,<?php echo base64_encode($image); ?>" width="125" height="125" class="my-3 rounded-circle">
-                <div class="round">
-                  <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png">
-                  <i class="fa fa-camera" style="color: #fff;"></i>
+                        <form class="form" id="form" action="upim.php" enctype="multipart/form-data" method="post">
+                            <div class="upload">
+                                <img src="data:image/jpeg;base64,<?php echo base64_encode($image); ?>" width="125"
+                                    height="125" class="my-3 rounded-circle">
+                                <div class="round">
+                                    <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png">
+                                    <i class="fa fa-camera" style="color: #fff;"></i>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </figure>
+
+                <div class="info-content">
+                    <h3 class="name" title="<?php echo $name; ?>"><?php echo $name; ?></h3>
+
                 </div>
-              </div>
-            </form>
-          </div>
-        </figure>
 
-        <div class="info-content">
-          <h3 class="name" title="<?php echo $name; ?>"><?php echo $name; ?></h3>
+                <button class="info_more-btn" data-sidebar-btn>
+                    <span>Show Contacts</span>
 
-        </div>
-
-        <button class="info_more-btn" data-sidebar-btn>
-          <span>Show Contacts</span>
-
-          <ion-icon name="chevron-down"></ion-icon>
-        </button>
-      </div>
-
-      <div class="sidebar-info_more">
-        <div class="separator"></div>
-
-        <ul class="contacts-list">
-          <li class="contact-item">
-            <div class="icon-box">
-              <ion-icon name="mail-outline"></ion-icon>
+                    <ion-icon name="chevron-down"></ion-icon>
+                </button>
             </div>
 
-            <div class="contact-info">
-              <p class="contact-title">Email</p>
+            <div class="sidebar-info_more">
+                <div class="separator"></div>
 
-              <a href="mailto:<?php echo $email; ?>" class="contact-link"><?php echo $email; ?></a>
-            </div>
-          </li>
+                <ul class="contacts-list">
+                    <li class="contact-item">
+                        <div class="icon-box">
+                            <ion-icon name="mail-outline"></ion-icon>
+                        </div>
 
-          <li class="contact-item">
-            <div class="icon-box">
-              <ion-icon name="phone-portrait-outline"></ion-icon>
-            </div>
+                        <div class="contact-info">
+                            <p class="contact-title">Email</p>
 
-            <div class="contact-info">
-              <p class="contact-title">Phone</p>
+                            <a href="mailto:<?php echo $email; ?>" class="contact-link"><?php echo $email; ?></a>
+                        </div>
+                    </li>
 
-              <a href="tel:<?php echo $phno; ?>" class="contact-link"><?php echo $phno; ?></a>
-            </div>
-          </li>
-          <li class="contact-item">
-            <?php
+                    <li class="contact-item">
+                        <div class="icon-box">
+                            <ion-icon name="phone-portrait-outline"></ion-icon>
+                        </div>
+
+                        <div class="contact-info">
+                            <p class="contact-title">Phone</p>
+
+                            <a href="tel:<?php echo $phno; ?>" class="contact-link"><?php echo $phno; ?></a>
+                        </div>
+                    </li>
+                    <li class="contact-item">
+                        <?php
             $a = $_SESSION['id'];
             $sql = "SELECT * FROM usertable WHERE id = '$a'";
             $result = mysqli_query($con, $sql);
@@ -168,81 +171,84 @@ if ($selected) {
             }
             ?>
 
-            <div class="social-icons">
-              <?php if (!empty($retrievedFacebook)) : ?>
-                <a href="<?php echo $retrievedFacebook; ?>" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
-              <?php endif; ?>
-              <?php if (!empty($retrievedGitHub)) : ?>
-                <a href="<?php echo $retrievedGitHub; ?>" class="icon"><i class="fa-brands fa-github"></i></a>
-              <?php endif; ?>
-              <?php if (!empty($retrievedLinkedIn)) : ?>
-                <a href="<?php echo $retrievedLinkedIn; ?>" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
-              <?php endif; ?>
-              <?php if (!empty($retrievedlink)) : ?>
-                <a href="<?php echo $retrievedlink; ?>" class="icon"><i class="fa fa-paperclip"></i></a>
-              <?php endif; ?>
-              <?php foreach ($additionalLinks as $additionalLink) : ?>
-                <?php if (!empty($additionalLink)) : ?>
-                  <a href="<?php echo $additionalLink; ?>" class="icon"><i class="fa fa-link"></i></a>
-                <?php endif; ?>
-              <?php endforeach; ?>
+                        <div class="social-icons">
+                            <?php if (!empty($retrievedFacebook)) : ?>
+                            <a href="<?php echo $retrievedFacebook; ?>" class="icon"><i
+                                    class="fa-brands fa-facebook-f"></i></a>
+                            <?php endif; ?>
+                            <?php if (!empty($retrievedGitHub)) : ?>
+                            <a href="<?php echo $retrievedGitHub; ?>" class="icon"><i
+                                    class="fa-brands fa-github"></i></a>
+                            <?php endif; ?>
+                            <?php if (!empty($retrievedLinkedIn)) : ?>
+                            <a href="<?php echo $retrievedLinkedIn; ?>" class="icon"><i
+                                    class="fa-brands fa-linkedin-in"></i></a>
+                            <?php endif; ?>
+                            <?php if (!empty($retrievedlink)) : ?>
+                            <a href="<?php echo $retrievedlink; ?>" class="icon"><i class="fa fa-paperclip"></i></a>
+                            <?php endif; ?>
+                            <?php foreach ($additionalLinks as $additionalLink) : ?>
+                            <?php if (!empty($additionalLink)) : ?>
+                            <a href="<?php echo $additionalLink; ?>" class="icon"><i class="fa fa-link"></i></a>
+                            <?php endif; ?>
+                            <?php endforeach; ?>
+                        </div>
+                    </li>
+
+                </ul><br>
+
+                <div class="separator"></div>
+
             </div>
-          </li>
+        </aside>
 
-        </ul><br>
-
-        <div class="separator"></div>
-
-      </div>
-    </aside>
-
-    <!--
+        <!--
       - #main-content
     -->
 
-    <div class="main-content">
-      <!--
+        <div class="main-content">
+            <!--
         - #NAVBAR
       -->
 
-      <nav class="navbar">
-        <ul class="navbar-list">
-          <li class="navbar-item">
-            <button class="navbar-link" onclick="location.replace('../index.php')">Home</button>
-          </li>
-          <li class="navbar-item">
-            <button class="navbar-link active" data-nav-link>About</button>
-          </li>
+            <nav class="navbar">
+                <ul class="navbar-list">
+                    <li class="navbar-item">
+                        <button class="navbar-link" onclick="location.replace('../index.php')">Home</button>
+                    </li>
+                    <li class="navbar-item">
+                        <button class="navbar-link active" data-nav-link>About</button>
+                    </li>
 
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Edit</button>
-          </li>
-
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>QrCode</button>
-          </li>
+                    <li class="navbar-item">
+                        <button class="navbar-link" data-nav-link>Edit</button>
+                    </li>
 
 
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Social</button>
-          </li>
-          <li class="navbar-item">
-            <button class="navbar-link" onclick="location.replace('logout.php')">Logout</button>
-          </li>
-        </ul>
-      </nav>
+                    <li class="navbar-item">
+                        <button class="navbar-link" data-nav-link>QrCode</button>
+                    </li>
 
-      <!--
+
+                    <li class="navbar-item">
+                        <button class="navbar-link" data-nav-link>Social</button>
+                    </li>
+                    <li class="navbar-item">
+                        <button class="navbar-link" onclick="location.replace('logout.php')">Logout</button>
+                    </li>
+                </ul>
+            </nav>
+
+            <!--
         - #ABOUT
       -->
 
-      <article class="about active" data-page="about">
-        <header>
-          <h2 class="h2 article-title">About me</h2>
-        </header>
+            <article class="about active" data-page="about">
+                <header>
+                    <h2 class="h2 article-title">About me</h2>
+                </header>
 
-        <?php
+                <?php
 
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -302,107 +308,115 @@ if ($selected) {
         ?>
 
 
-        <section class="about-text">
-          <?php if (empty($about)) : ?>
+                <section class="about-text">
+                    <?php if (empty($about)) : ?>
 
-            <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
-              <textarea name="about" class="form-input" placeholder="Write about yourself" rows="4" cols="50" required data-form-input></textarea><br>
-              <input type="submit" class="form-btn" value="Save">
-            </form>
-          <?php else : ?>
-            <div>
-              <p><?php echo nl2br($about); ?></p>
-              <a href="?edit=1" class="form-btn">
-                <span>Edit</span>
-              </a><br>
-            </div>
+                    <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+                        <textarea name="about" class="form-input" placeholder="Write about yourself" rows="4" cols="50"
+                            required data-form-input></textarea><br>
+                        <input type="submit" class="form-btn" value="Save">
+                    </form>
+                    <?php else : ?>
+                    <div>
+                        <p><?php echo nl2br($about); ?></p>
+                        <a href="?edit=1" class="form-btn">
+                            <span>Edit</span>
+                        </a><br>
+                    </div>
 
-            <?php if (isset($_GET['edit'])) : ?>
-              <!-- Show the text box for editing about text -->
-              <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
-                <textarea name="about" class="form-input" rows="4" cols="50" required data-form-input><?php echo htmlspecialchars($about); ?></textarea><br>
-                <input type="submit" class="form-btn" value="Update">
-              </form>
-            <?php endif; ?>
-          <?php endif; ?>
-        </section>
+                    <?php if (isset($_GET['edit'])) : ?>
+                    <!-- Show the text box for editing about text -->
+                    <form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+                        <textarea name="about" class="form-input" rows="4" cols="50" required
+                            data-form-input><?php echo htmlspecialchars($about); ?></textarea><br>
+                        <input type="submit" class="form-btn" value="Update">
+                    </form>
+                    <?php endif; ?>
+                    <?php endif; ?>
+                </section>
 
-        <!--
+                <!--
           - testimonials modal
         -->
-        <div class="modal-container" data-modal-container>
-          <div class="overlay" data-overlay></div>
-          <section class="testimonials-modal">
-            <button class="modal-close-btn" data-modal-close-btn>
-              <ion-icon name="close-outline"></ion-icon>
-            </button>
-            <div class="modal-img-wrapper">
-            </div>
-            <div class="modal-content">
-              <h4 class="h3 modal-title" data-modal-title></h4>
-              <div data-modal-text>
+                <div class="modal-container" data-modal-container>
+                    <div class="overlay" data-overlay></div>
+                    <section class="testimonials-modal">
+                        <button class="modal-close-btn" data-modal-close-btn>
+                            <ion-icon name="close-outline"></ion-icon>
+                        </button>
+                        <div class="modal-img-wrapper">
+                        </div>
+                        <div class="modal-content">
+                            <h4 class="h3 modal-title" data-modal-title></h4>
+                            <div data-modal-text>
 
-              </div>
-            </div>
-          </section>
-        </div>
-      </article>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </article>
 
-      <!--
+            <!--
         - #edit
       -->
 
-      <article class="edit" data-page="edit">
-        <header>
-          <h2 class="h2 article-title">Edit info</h2>
-        </header>
-        <section class="contact-form">
-          <h3 class="h3 form-title">Update Information</h3>
+            <article class="edit" data-page="edit">
+                <header>
+                    <h2 class="h2 article-title">Edit info</h2>
+                </header>
+                <section class="contact-form">
+                    <h3 class="h3 form-title">Update Information</h3>
 
-          <form action="update.php" method="post" class="form" data-form>
-            <div class="input-wrapper">
+                    <form action="update.php" method="post" class="form" data-form>
+                        <div class="input-wrapper">
 
-              <input type="email" name="email" id="email" class="form-input" placeholder="Input new email address" value="<?php echo $email; ?>" required data-form-input />
-              <input type="text" name="name" id="name" class="form-input" placeholder="Input new username" value="<?php echo $name; ?>" required data-form-input />
+                            <input type="email" name="email" id="email" class="form-input"
+                                placeholder="Input new email address" value="<?php echo $email; ?>" required
+                                data-form-input />
+                            <input type="text" name="name" id="name" class="form-input" placeholder="Input new username"
+                                value="<?php echo $name; ?>" required data-form-input />
 
-            </div>
-            <input type="text" name="phno" id="phno" class="form-input" placeholder="Input new phone number" value="<?php echo $phno; ?>" required data-form-input /><br>
-            <button class="form-btn" type="submit" disabled data-form-btn>
-              <ion-icon name="paper-plane"></ion-icon>
-              <span>Update info</span>
-            </button><br>
-          </form>
-
-
-          <h3 class="h3 form-title">Update Password</h3>
-
-          <form action="changePass.php" method="post" class="form" data-form>
-            <div class="input-wrapper">
-              <input id="password" name="password" type="password" class="form-input" placeholder="Input old password" required data-form-input />
-              <input id="con_pass" name="con_pass" type="password" class="form-input" placeholder="Input new password" required data-form-input />
-            </div>
-            <button class="form-btn" type="submit">
-              <ion-icon name="paper-plane"></ion-icon>
-              <span>Update password</span>
-            </button>
-          </form>
-
-        </section>
-      </article>
+                        </div>
+                        <input type="text" name="phno" id="phno" class="form-input" placeholder="Input new phone number"
+                            value="<?php echo $phno; ?>" required data-form-input /><br>
+                        <button class="form-btn" type="submit" disabled data-form-btn>
+                            <ion-icon name="paper-plane"></ion-icon>
+                            <span>Update info</span>
+                        </button><br>
+                    </form>
 
 
-      <!--
+                    <h3 class="h3 form-title">Update Password</h3>
+
+                    <form action="changePass.php" method="post" class="form" data-form>
+                        <div class="input-wrapper">
+                            <input id="password" name="password" type="password" class="form-input"
+                                placeholder="Input old password" required data-form-input />
+                            <input id="con_pass" name="con_pass" type="password" class="form-input"
+                                placeholder="Input new password" required data-form-input />
+                        </div>
+                        <button class="form-btn" type="submit">
+                            <ion-icon name="paper-plane"></ion-icon>
+                            <span>Update password</span>
+                        </button>
+                    </form>
+
+                </section>
+            </article>
+
+
+            <!--
         - #Qr
       -->
 
-      <article class="portfolio" data-page="qrcode">
-        <header>
-          <h2 class="h2 article-title">Qr Code</h2>
-        </header>
-        <h3 class="h3 form-title">Contact Information</h3>
-        <div class="qr-container">
+            <article class="portfolio" data-page="qrcode">
+                <header>
+                    <h2 class="h2 article-title">Qr Code</h2>
+                </header>
+                <h3 class="h3 form-title">Contact Information</h3>
+                <div class="qr-container">
 
-          <?php
+                    <?php
           $data = "BEGIN:VCARD\nVERSION:3.0\nFN:$name\nEMAIL:$email\nTEL:$phno\nEND:VCARD";
           $qrCodeData = urlencode($data);
 
@@ -447,22 +461,23 @@ if ($selected) {
 
 
 
-          <img src="<?php echo $qrCodeURL; ?>" alt="QR Code"><br>
+                    <img src="<?php echo $qrCodeURL; ?>" alt="QR Code"><br>
 
-          <!-- Download button for the QR code -->
+                    <!-- Download button for the QR code -->
 
-          <a href="<?php echo $qrCodeURL; ?>" download="contact_qr_code.jpg" class="form-btn">Download QR Code</a>
-        </div><br>
+                    <a href="<?php echo $qrCodeURL; ?>" download="contact_qr_code.jpg" class="form-btn">Download QR
+                        Code</a>
+                </div><br>
 
-        <h3 class="h3 form-title">Profile Link</h3>
-        <div class="qr-container">
+                <h3 class="h3 form-title">Profile Link</h3>
+                <div class="qr-container">
 
-          <?php
+                    <?php
           if (isset($_SESSION['id'])) {
             // Assuming $_SESSION['id'] contains the user ID
             $id = $_SESSION['id'];
             // Construct the profile URL
-            $profileURL = 'http://192.168.0.101/v/qrcode/Profile/viewProfile.php?uid=' . $id;
+            $profileURL = 'http://sql210.infinityfree.com/v/qrcode/Profile/viewProfile.php?uid=' . $id;
             // URL encode the profile URL
             $profileURLEncoded = urlencode($profileURL);
             // Generate the URL for the second QR code
@@ -472,83 +487,88 @@ if ($selected) {
             echo "<p>Profile QR Code not available.</p>";
           }
           ?>
-          <br>
-        </div>
+                    <br>
+                </div>
 
-        <a href="<?php echo isset($profileQRCodeURL) ? $profileQRCodeURL : '#'; ?>" download="profile_qr_code.jpg" class="form-btn">Download QR Code</a>
+                <a href="<?php echo isset($profileQRCodeURL) ? $profileQRCodeURL : '#'; ?>"
+                    download="profile_qr_code.jpg" class="form-btn">Download QR Code</a>
 
-        <div class="">
-          <button class="" data-select>
+                <div class="">
+                    <button class="" data-select>
 
-          </button>
+                    </button>
 
-        </div>
+                </div>
 
-        <ul class="project-list">
+                <ul class="project-list">
 
-        </ul>
+                </ul>
 
-      </article>
+            </article>
 
-      <article class="social" data-page="social">
-        <header>
-          <h2 class="h2 article-title">Social links</h2>
-        </header>
+            <article class="social" data-page="social">
+                <header>
+                    <h2 class="h2 article-title">Social links</h2>
+                </header>
 
-        <section class="social-links">
-          <!-- Your HTML structure -->
-          <section class="social-links">
-            <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+                <section class="social-links">
+                    <!-- Your HTML structure -->
+                    <section class="social-links">
+                        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
 
-              <!-- Existing link input boxes -->
-              <input type="text" class="form-input" name="facebook" placeholder="Input Facebook link" value="<?php echo $retrievedFacebook; ?>"> <br>
-              <input type="text" class="form-input" name="github" placeholder="Input GitHub link" value="<?php echo $retrievedGitHub; ?>"> <br>
-              <input type="text" class="form-input" name="linkedin" placeholder="Input LinkedIn link" value="<?php echo $retrievedLinkedIn; ?>"><br>
-              <input type="text" class="form-input" name="link" placeholder="Want to add any custom link" value="<?php echo $retrievedlink; ?>"><br>
+                            <!-- Existing link input boxes -->
+                            <input type="text" class="form-input" name="facebook" placeholder="Input Facebook link"
+                                value="<?php echo $retrievedFacebook; ?>"> <br>
+                            <input type="text" class="form-input" name="github" placeholder="Input GitHub link"
+                                value="<?php echo $retrievedGitHub; ?>"> <br>
+                            <input type="text" class="form-input" name="linkedin" placeholder="Input LinkedIn link"
+                                value="<?php echo $retrievedLinkedIn; ?>"><br>
+                            <input type="text" class="form-input" name="link" placeholder="Want to add any custom link"
+                                value="<?php echo $retrievedlink; ?>"><br>
 
 
-              <div id="additionalLinksContainer">
+                            <div id="additionalLinksContainer">
 
-              </div><br>
+                            </div><br>
 
-              <!-- Plus button to add more link input boxes -->
-              <button type="button" id="addLink" class="form-btn">+</button><br>
+                            <!-- Plus button to add more link input boxes -->
+                            <button type="button" id="addLink" class="form-btn">+</button><br>
 
-              <?php if (!empty($retrievedFacebook) || !empty($retrievedGitHub) || !empty($retrievedLinkedIn) || !empty($retrievedlink)) : ?>
-                <input type="submit" name="submit" class="form-btn" value="Update">
-              <?php else : ?>
-                <input type="submit" name="submit" class="form-btn" value="Submit">
-              <?php endif; ?>
+                            <?php if (!empty($retrievedFacebook) || !empty($retrievedGitHub) || !empty($retrievedLinkedIn) || !empty($retrievedlink)) : ?>
+                            <input type="submit" name="submit" class="form-btn" value="Update">
+                            <?php else : ?>
+                            <input type="submit" name="submit" class="form-btn" value="Submit">
+                            <?php endif; ?>
 
-            </form>
-          </section>
-          <script>
-            document.getElementById("addLink").addEventListener("click", function() {
-              const container = document.getElementById("additionalLinksContainer");
-              const existingLinksCount = container.querySelectorAll(".additional-link-input").length;
+                        </form>
+                    </section>
+                    <script>
+                    document.getElementById("addLink").addEventListener("click", function() {
+                        const container = document.getElementById("additionalLinksContainer");
+                        const existingLinksCount = container.querySelectorAll(".additional-link-input").length;
 
-              if (existingLinksCount < 8) {
-                const newInput = document.createElement("input");
-                newInput.type = "text";
-                newInput.className = "form-input additional-link-input";
-                newInput.placeholder = "Add your new Link";
-                newInput.name = "additionalLinks[]";
-                newInput.required = true;
-                container.appendChild(newInput);
+                        if (existingLinksCount < 8) {
+                            const newInput = document.createElement("input");
+                            newInput.type = "text";
+                            newInput.className = "form-input additional-link-input";
+                            newInput.placeholder = "Add your new Link";
+                            newInput.name = "additionalLinks[]";
+                            newInput.required = true;
+                            container.appendChild(newInput);
 
-                const lineBreak = document.createElement("br");
-                container.appendChild(lineBreak);
-              } else {
-                Swal.fire({
-                  icon: 'warning',
-                  title: 'Maximum Limit Reached',
-                  text: 'You can add a maximum of 8 links.',
-                });
-              }
-            });
-          </script>
+                            const lineBreak = document.createElement("br");
+                            container.appendChild(lineBreak);
+                        } else {
+                            Swal.fire({
+                                icon: 'warning',
+                                title: 'Maximum Limit Reached',
+                                text: 'You can add a maximum of 8 links.',
+                            });
+                        }
+                    });
+                    </script>
 
-          <?php
+                    <?php
 
 
           if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
@@ -593,26 +613,26 @@ if ($selected) {
           }
           ?>
 
-        </section>
-      </article>
+                </section>
+            </article>
 
-    </div>
-  </main>
+        </div>
+    </main>
 
-  <!--
+    <!--
     - custom js link
   -->
-  <script src="./assets/js/script.js"></script>
-  <script script type="text/javascript">
+    <script src="./assets/js/script.js"></script>
+    <script script type="text/javascript">
     document.getElementById("image").onchange = function() {
-      document.getElementById("form").submit();
+        document.getElementById("form").submit();
     };
-  </script>
-  <!--
+    </script>
+    <!--
     - ionicon link
   -->
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
 </body>
 
