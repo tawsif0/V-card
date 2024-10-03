@@ -477,7 +477,11 @@ if ($selected) {
             // Assuming $_SESSION['id'] contains the user ID
             $id = $_SESSION['id'];
             // Construct the profile URL
-            $profileURL = 'http://vcard.infinityfree.com/v/qrcode/Profile/viewProfile.php?uid=' . $id;
+            $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https://" : "http://";
+            $host = $_SERVER['HTTP_HOST']; 
+            $profileURL = $protocol . $host . '/v/qrcode/Profile/viewProfile.php?uid=' . $id;
+
+          
             // URL encode the profile URL
             $profileURLEncoded = urlencode($profileURL);
             // Generate the URL for the second QR code
